@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yalla: plans that actually happen</title>
+  <meta name="description" content="Yalla is a map of what you could be doing near you in Lebanon, plus an assistant that gets your friends to show up. A CSC 490 senior project by Yamen Morcel and Hadi Khawand.">
+  <meta name="theme-color" content="#11935F">
+  <meta property="og:title" content="Yalla: plans that actually happen">
+  <meta property="og:description" content="A map of what you could be doing near you, and an assistant that gets your friends to show up.">
+  <meta property="og:image" content="https://yalla-app-lb.github.io/img/share.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preload" href="fonts/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="Yalla home">
+        <img src="img/icon-192.png" alt="" width="40" height="40">
+        <picture class="wordmark">
+          <source srcset="img/wordmark-mint.png" media="(prefers-color-scheme: dark)">
+          <img src="img/wordmark-green.png" alt="" width="70" height="23">
+        </picture>
+      </a>
+      <nav aria-label="Pages">
+        <a href="./" aria-current="page">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="about">
+    <!-- hero -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-copy">
+          <img class="hero-logo" src="img/wordmark.png" alt="Yalla" width="600" height="201">
+          <span class="chip"><i></i>CSC 490 senior project · Made in Lebanon</span>
+          <h1 class="display">Plans that <em>actually</em> happen.</h1>
+          <p class="lede">A map of what you could be doing near you, plus an assistant that gets your friends to show
+            up. Everyone keeps their weekly free time in the app, so <b>Yalla already knows who can make Saturday</b>
+            and suggests a time that works.</p>
+          <div class="cta">
+            <a class="btn btn-white" href="#how">See what it does
+              <svg class="i" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-ghost" href="#team">Meet the team</a>
+          </div>
+          <p class="fine"><span><i></i>A university senior project</span><span><i></i>Not on an app store yet</span><span><i></i>Screens from our app design</span></p>
+        </div>
+
+        <div class="art">
+          <div class="phone back"><img src="img/screens/friends.webp" alt="The Friends screen of the Yalla app: friend requests, groups, and 6 friends free this Saturday." width="390" height="844"></div>
+          <div class="phone front"><img src="img/screens/map.webp" alt="The Map screen of the Yalla app: coloured place pins around Beirut, category filters, and a nearby café." width="390" height="844"></div>
+          <div class="float f1 bob" aria-hidden="true">
+            <p class="f-t">Who's free Saturday?</p>
+            <div class="fr"><span class="stack"><span class="av a1">KH</span><span class="av a2">LS</span><span class="av a3">RA</span><span class="av a4">HN</span></span><span class="yes">Free</span></div>
+            <div class="fr"><span class="stack"><span class="av a6">ZM</span></span><span class="no">Busy</span></div>
+            <p class="f-s">5 of 6 friends free · afternoon</p>
+          </div>
+          <div class="float f2 bob2" aria-hidden="true">
+            <p class="f-t">Pick a time</p>
+            <div class="vote"><div class="vote-l"><span>Sat 2:00 PM</span><span>4 votes</span></div><div class="bar"><b style="width:80%"></b></div></div>
+            <div class="vote"><div class="vote-l"><span>Sun 6:00 PM</span><span>1 vote</span></div><div class="bar lo"><b style="width:20%"></b></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- the problem -->
+    <section class="sec" id="problem">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow"><span class="dot"></span>The problem</p>
+          <h2 class="h2">Group chats go in circles.<br>Yalla already knows who's free.</h2>
+          <p class="sub">Finding something to do is easy. Getting five friends to agree on when is where plans die.</p>
+        </div>
+        <div class="duo">
+          <div class="panel">
+            <span class="tag">Without Yalla</span>
+            <div class="chat" role="img" aria-label="A group chat where friends keep asking who is free and never decide.">
+              <div class="bub"><small>Rami</small>who's free this weekend?</div>
+              <div class="bub"><small>Lea</small>maybe saturday?</div>
+              <div class="bub"><small>Tarek</small>I have something sat morning</div>
+              <div class="bub me"><small>You</small>sunday then?</div>
+              <div class="bub"><small>Joe</small>can't do sunday</div>
+              <div class="bub"><small>Rami</small>ok let's see closer to the day</div>
+              <span class="sys">Saturday came. Nobody went.</span>
+            </div>
+          </div>
+          <div class="vs" aria-hidden="true"><span><svg class="i" width="22" height="22" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          <div class="panel">
+            <span class="tag g">With Yalla</span>
+            <div class="who" role="img" aria-label="For Saturday afternoon, Yalla shows that five of six friends are free and one is busy. It doesn't show anyone's hours.">
+              <p class="who-h">Saturday afternoon</p>
+              <div class="who-r"><span class="av a7">You</span>You<span class="yes">Free</span></div>
+              <div class="who-r"><span class="av a1">RM</span>Rami<span class="yes">Free</span></div>
+              <div class="who-r"><span class="av a2">LS</span>Lea<span class="yes">Free</span></div>
+              <div class="who-r"><span class="av a6">TK</span>Tarek<span class="no">Busy</span></div>
+              <div class="who-r"><span class="av a4">JM</span>Joe<span class="yes">Free</span></div>
+              <div class="who-r"><span class="av a3">NK</span>Nour<span class="yes">Free</span></div>
+            </div>
+            <div class="verdict">
+              <p>5 of 6 are free<span>Only free or busy: nobody sees your hours</span></p>
+              <span class="fake-btn" aria-hidden="true">Make a plan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- features, with the app's screens -->
+    <section class="sec flush" id="how">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow"><span class="dot"></span>What you can do</p>
+          <h2 class="h2">From &ldquo;we should&rdquo; to &ldquo;see you there&rdquo;.</h2>
+        </div>
+        <div class="bento">
+          <article class="card s7">
+            <span class="num">01</span>
+            <h3>Explore about 32,000 real places</h3>
+            <p>Cafés, trails, courts, museums, rooftops and more, on one map of Lebanon. Filter by what you're in the mood for.</p>
+            <div class="viz">
+            <div class="chips" aria-label="Map categories">
+              <span class="chip2"><i style="background:#FF7043"></i>Food</span>
+              <span class="chip2"><i style="background:#1DAA6E"></i>Outdoor</span>
+              <span class="chip2"><i style="background:#29B6F6"></i>Sport</span>
+              <span class="chip2"><i style="background:#AB47BC"></i>Fun</span>
+              <span class="chip2"><i style="background:#FFA726"></i>Culture</span>
+              <span class="chip2"><i style="background:#7E57C2"></i>Nightlife</span>
+              <span class="chip2"><i style="background:#EC407A"></i>Shops</span>
+            </div>
+            <div class="strip" aria-hidden="true">
+              <svg viewBox="0 0 600 120" preserveAspectRatio="xMidYMid slice">
+                <rect class="m-land" x="0" y="0" width="600" height="120"/>
+                <path class="m-sea" d="M0 0 H90 C70 40 110 80 86 120 H0 Z"/>
+                <ellipse class="m-park" cx="380" cy="40" rx="60" ry="22"/>
+                <path class="m-road" d="M90 60 C220 40 360 90 600 54"/>
+                <path class="m-road2" d="M240 0 C230 60 260 90 250 120"/>
+                <path class="m-road2" d="M470 0 C480 50 450 80 470 120"/>
+                <g transform="translate(140 30)"><path class="pin-b c-food" d="M12 0C5.4 0 0 5.2 0 11.6 0 20.3 12 32 12 32s12-11.7 12-20.4C24 5.2 18.6 0 12 0z"/><circle class="pin-c" cx="12" cy="11.5" r="4.5"/></g>
+                <g transform="translate(210 70)"><path class="pin-b c-cul" d="M12 0C5.4 0 0 5.2 0 11.6 0 20.3 12 32 12 32s12-11.7 12-20.4C24 5.2 18.6 0 12 0z"/><circle class="pin-c" cx="12" cy="11.5" r="4.5"/></g>
+                <g transform="translate(300 18)"><path class="pin-b c-night" d="M12 0C5.4 0 0 5.2 0 11.6 0 20.3 12 32 12 32s12-11.7 12-20.4C24 5.2 18.6 0 12 0z"/><circle class="pin-c" cx="12" cy="11.5" r="4.5"/></g>
+                <g transform="translate(370 20)"><path class="pin-b c-out" d="M12 0C5.4 0 0 5.2 0 11.6 0 20.3 12 32 12 32s12-11.7 12-20.4C24 5.2 18.6 0 12 0z"/><circle class="pin-c" cx="12" cy="11.5" r="4.5"/></g>
+                <g transform="translate(430 68)"><path class="pin-b c-sport" d="M12 0C5.4 0 0 5.2 0 11.6 0 20.3 12 32 12 32s12-11.7 12-20.4C24 5.2 18.6 0 12 0z"/><circle class="pin-c" cx="12" cy="11.5" r="4.5"/></g>
+                <g transform="translate(520 24)"><path class="pin-b c-fun" d="M12 0C5.4 0 0 5.2 0 11.6 0 20.3 12 32 12 32s12-11.7 12-20.4C24 5.2 18.6 0 12 0z"/><circle class="pin-c" cx="12" cy="11.5" r="4.5"/></g>
+                <g transform="translate(550 74)"><path class="pin-b c-shop" d="M12 0C5.4 0 0 5.2 0 11.6 0 20.3 12 32 12 32s12-11.7 12-20.4C24 5.2 18.6 0 12 0z"/><circle class="pin-c" cx="12" cy="11.5" r="4.5"/></g>
+              </svg>
+            </div>
+            </div>
+          </article>
+
+          <article class="card s5">
+            <span class="num">02</span>
+            <h3>Share your weekly free time</h3>
+            <p>Tap the times you're usually free, once. You choose which friends it's used for, and nobody sees your hours.</p>
+            <div class="viz" aria-hidden="true">
+              <div class="week">
+                <span class="wd">M</span><span class="wd">T</span><span class="wd">W</span><span class="wd">T</span><span class="wd">F</span><span class="wd">S</span><span class="wd">S</span>
+                <span class="wc"></span><span class="wc"></span><span class="wc"></span><span class="wc"></span><span class="wc"></span><span class="wc f"></span><span class="wc f"></span>
+                <span class="wc"></span><span class="wc f"></span><span class="wc"></span><span class="wc"></span><span class="wc"></span><span class="wc f"></span><span class="wc f"></span>
+                <span class="wc f"></span><span class="wc f"></span><span class="wc"></span><span class="wc f"></span><span class="wc f"></span><span class="wc f"></span><span class="wc"></span>
+                <span class="wc f"></span><span class="wc"></span><span class="wc"></span><span class="wc f"></span><span class="wc f"></span><span class="wc f"></span><span class="wc"></span>
+              </div>
+              <div class="share">
+                <div class="tog"><span class="row"><span class="av a1">RM</span>Rami</span><span class="sw"></span></div>
+                <div class="tog"><span class="row"><span class="av a2">LS</span>Lea</span><span class="sw"></span></div>
+                <div class="tog"><span class="row"><span class="av a6">TK</span>Tarek</span><span class="sw off"></span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card s5">
+            <span class="num">03</span>
+            <h3>Make a plan together</h3>
+            <p>Invite friends, vote on a time, and hold seats fairly: if two people tap the last seat at the same moment, only one gets it.</p>
+            <div class="viz mini" aria-hidden="true">
+              <div class="mini-h">Board games night<span>6 seats</span></div>
+              <div class="vote"><div class="vote-l"><span>Fri 8:00 PM</span><span>3 votes</span></div><div class="bar"><b style="width:75%"></b></div></div>
+              <div class="vote"><div class="vote-l"><span>Sat 7:00 PM</span><span>1 vote</span></div><div class="bar lo"><b style="width:25%"></b></div></div>
+              <div class="row spread">
+                <div class="stack"><span class="av a7">You</span><span class="av a1">RM</span><span class="av a4">JM</span><span class="av a2">LS</span><span class="av a5">SA</span></div>
+                <span class="seats-left">1 seat left</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card s7">
+            <span class="num">04</span>
+            <h3>See who came</h3>
+            <p>After a plan, the host marks who actually showed up. Over time, that's how Yalla learns who really comes.</p>
+            <div class="viz came" aria-hidden="true">
+              <div class="cr"><span class="av a1">RM</span>Rami<span class="st"><svg class="i" width="16" height="16" viewBox="0 0 24 24" style="stroke-width:3"><path d="M5 12l5 5 9-10"/></svg>Came</span></div>
+              <div class="cr"><span class="av a2">LS</span>Lea<span class="st"><svg class="i" width="16" height="16" viewBox="0 0 24 24" style="stroke-width:3"><path d="M5 12l5 5 9-10"/></svg>Came</span></div>
+              <div class="cr"><span class="av a6">TK</span>Tarek<span class="st no">Didn't make it</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- the AI -->
+    <section class="band" id="ai">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow"><span class="dot"></span>The AI</p>
+          <h2 class="h2">Three small models we're training.</h2>
+          <p class="sub">They're in progress: being trained and tested for our final report, and not in the app yet. Here's what each one is for.</p>
+        </div>
+        <div class="ai-grid">
+          <article class="ai">
+            <span class="wip">In progress</span>
+            <span class="num">MODEL 1</span>
+            <h3>Understanding a typed request</h3>
+            <p>You type what you want the way you'd text a friend. The model turns it into a search the map can run.</p>
+            <div class="ai-viz" aria-hidden="true">
+              <span class="q">dinner in Hamra friday night</span>
+              <span class="arrow">becomes</span>
+              <div class="chips"><span class="slot"><em>what</em> Food</span><span class="slot"><em>where</em> Hamra</span><span class="slot"><em>when</em> Fri, evening</span></div>
+            </div>
+          </article>
+          <article class="ai">
+            <span class="wip">In progress</span>
+            <span class="num">MODEL 2</span>
+            <h3>Ranking places</h3>
+            <p>Out of everything that matches, it puts the places you're most likely to pick at the top.</p>
+            <div class="ai-viz" aria-hidden="true">
+              <div class="rk"><b>1</b>Seaside café<i style="background:#FF7043"></i></div>
+              <div class="rk"><b>2</b>Rooftop restaurant<i style="background:#FF7043"></i></div>
+              <div class="rk"><b>3</b>Bowling alley<i style="background:#AB47BC"></i></div>
+            </div>
+          </article>
+          <article class="ai">
+            <span class="wip">In progress</span>
+            <span class="num">MODEL 3</span>
+            <h3>Predicting attendance</h3>
+            <p>Estimates how likely each invited friend is to really come at a given time, so you can pick the time that fills the table.</p>
+            <div class="ai-viz" aria-hidden="true">
+              <div class="pr"><span class="av a1">RM</span><div class="bar"><b style="width:85%"></b></div><span class="lbl">Likely</span></div>
+              <div class="pr"><span class="av a2">LS</span><div class="bar"><b style="width:55%"></b></div><span class="lbl">Maybe</span></div>
+              <div class="pr"><span class="av a6">TK</span><div class="bar"><b style="width:20%"></b></div><span class="lbl">Unlikely</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- honest note -->
+    <section class="sec" id="honest">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow"><span class="dot"></span>An honest note</p>
+          <h2 class="h2">What's real, and what isn't yet.</h2>
+          <p class="sub">Yalla is a student project. We'd rather tell you its limits up front.</p>
+        </div>
+        <div class="honest">
+          <div class="hn">
+            <span class="hn-i r" aria-hidden="true"><svg class="i" width="22" height="22" viewBox="0 0 24 24"><path d="M12 21s-7-6.4-7-11.5A7 7 0 0 1 19 9.5C19 14.6 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+            <div><h3>The places are real</h3><p>About 32,000 places from open data (Overture Maps, Foursquare's open places and Wikidata). Coverage is best in Beirut, Mount Lebanon, Keserwan-Jbeil and the North, and thinner elsewhere.</p></div>
+          </div>
+          <div class="hn">
+            <span class="hn-i s" aria-hidden="true"><svg class="i" width="22" height="22" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span>
+            <div><h3>Some data is simulated</h3><p>Bookable time slots at places are made up, and so is the social activity the models learn from.</p></div>
+          </div>
+          <div class="hn">
+            <span class="hn-i n" aria-hidden="true"><svg class="i" width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M6.5 6.5l11 11"/></svg></span>
+            <div><h3>No venue partnerships</h3><p>We don't work with any venue and can't book anything for you. Yalla helps you and your friends decide; the rest is up to you.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- team -->
+    <section class="sec flush" id="team">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow"><span class="dot"></span>The team</p>
+          <h2 class="h2">Built by two students.</h2>
+          <p class="sub">Yalla is our CSC 490 senior project. We split the work by feature, and each of us reviews the other's code.</p>
+        </div>
+        <div class="team">
+          <article class="person">
+            <div class="p-head">
+              <div class="p-av" aria-hidden="true"><svg viewBox="0 0 64 76"><path d="M32 0C14.3 0 0 13.9 0 31 0 54.3 32 76 32 76s32-21.7 32-45C64 13.9 49.7 0 32 0z" fill="#006D43"/></svg><span>YM</span></div>
+              <div><h3 class="p-name">Yamen Morcel</h3><p class="p-role">Co-developer</p></div>
+            </div>
+            <ul class="built">
+              <li>Accounts and profiles</li>
+              <li>Weekly free time ("who can make Saturday")</li>
+              <li>Plans: creating, joining with a fair seat lock, who came</li>
+              <li>The search log, admin panel, place reports and name filter</li>
+              <li>The app's screen foundation and speed work</li>
+              <li>The places data pipeline and cloud hosting</li>
+            </ul>
+            <div class="p-links">
+              <a class="pl" href="https://github.com/Yamen-M" rel="noopener"><svg class="i" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>GitHub</a>
+              <a class="pl" href="https://yamenmorcel.dev" rel="noopener"><svg class="i" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>Portfolio</a>
+            </div>
+          </article>
+          <article class="person">
+            <div class="p-head">
+              <div class="p-av" aria-hidden="true"><svg viewBox="0 0 64 76"><path d="M32 0C14.3 0 0 13.9 0 31 0 54.3 32 76 32 76s32-21.7 32-45C64 13.9 49.7 0 32 0z" fill="#11935F"/></svg><span>HK</span></div>
+              <div><h3 class="p-name">Hadi Khawand</h3><p class="p-role">Co-developer</p></div>
+            </div>
+            <ul class="built">
+              <li>Friends and groups</li>
+              <li>The map, place search and filters</li>
+              <li>Picking a time together: suggest and vote</li>
+              <li>Notifications (server side)</li>
+              <li>Adding places</li>
+              <li>Google sign-in and password features</li>
+              <li>Database speed-ups</li>
+            </ul>
+            <div class="p-links">
+              <a class="pl" href="https://github.com/hadikhawand" rel="noopener"><svg class="i" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>GitHub</a>
+              <a class="pl" href="https://hadikhawand.dev" rel="noopener"><svg class="i" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>Portfolio</a>
+            </div>
+          </article>
+        </div>
+        <p class="foot-note"><span class="wip">Shared</span>The three AI models are a shared effort, in progress.</p>
+      </div>
+    </section>
+
+    <!-- contact -->
+    <section class="wrap" id="contact">
+      <div class="contact">
+        <svg class="pins" viewBox="0 0 460 340" aria-hidden="true">
+          <g transform="translate(250 40) scale(3)" opacity=".22"><path fill="#7DFAB6" d="M12 0C5.4 0 0 5.2 0 11.6 0 20.3 12 32 12 32s12-11.7 12-20.4C24 5.2 18.6 0 12 0z"/></g>
+          <g transform="translate(360 150) scale(2)" opacity=".16"><path fill="#FFFFFF" d="M12 0C5.4 0 0 5.2 0 11.6 0 20.3 12 32 12 32s12-11.7 12-20.4C24 5.2 18.6 0 12 0z"/></g>
+          <g transform="translate(180 190) scale(1.6)" opacity=".14"><path fill="#7DFAB6" d="M12 0C5.4 0 0 5.2 0 11.6 0 20.3 12 32 12 32s12-11.7 12-20.4C24 5.2 18.6 0 12 0z"/></g>
+          <path d="M60 300 C140 250 200 300 270 230 S 380 160 420 110" fill="none" stroke="#7DFAB6" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round" opacity=".5"/>
+        </svg>
+        <p class="eyebrow"><span class="dot"></span>Contact</p>
+        <h2>Questions, or want your account deleted?</h2>
+        <p>Write to us. We're two students, and we'll get back to you.</p>
+        <a class="btn btn-white" href="mailto:yalla.app.lb@gmail.com">
+          <svg class="i" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg>yalla.app.lb@gmail.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-brand">
+        <img src="img/icon-192.png" alt="" width="40" height="40">
+        <img class="wordmark" src="img/wordmark.png" alt="" width="72" height="24">
+      </div>
+      <nav aria-label="Footer">
+        <a href="./">About</a>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="terms.html">Terms of use</a>
+        <a href="mailto:yalla.app.lb@gmail.com">Contact</a>
+      </nav>
+      <small>Yalla · a CSC 490 senior project by Yamen Morcel and Hadi Khawand · Lebanon, 2026. This site loads nothing from other sites: no trackers, no analytics.</small>
+    </div>
+  </footer>
+</body>
+</html>

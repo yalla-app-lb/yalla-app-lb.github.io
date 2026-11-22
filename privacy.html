@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy policy · Yalla</title>
+  <meta name="description" content="What the Yalla app stores about you, who else receives it, and how to have it deleted.">
+  <meta name="theme-color" content="#11935F">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></symbol>
+  </svg>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="Yalla home">
+        <img src="img/icon-192.png" alt="" width="36" height="36">
+        <picture class="wordmark">
+          <source srcset="img/wordmark-mint.png" media="(prefers-color-scheme: dark)">
+          <img src="img/wordmark-green.png" alt="" width="66" height="22">
+        </picture>
+      </a>
+      <nav aria-label="Pages">
+        <a href="./">About</a>
+        <a href="privacy.html" aria-current="page">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-head">
+    <div class="wrap">
+      <h1>Privacy policy</h1>
+      <p>Last updated: 22 November 2026</p>
+    </div>
+  </section>
+
+  <main class="wrap doc">
+    <nav class="toc" aria-label="On this page">
+      <b>On this page</b>
+      <ol>
+        <li><a href="#what">What we store</a></li>
+        <li><a href="#location">Your location</a></li>
+        <li><a href="#who-sees">Who can see what</a></li>
+        <li><a href="#google">Signing in with Google</a></li>
+        <li><a href="#others">Other services that receive data</a></li>
+        <li><a href="#ai">The AI features</a></li>
+        <li><a href="#keep">How long we keep it, and deleting your account</a></li>
+        <li><a href="#children">Children</a></li>
+        <li><a href="#site">This website</a></li>
+        <li><a href="#changes">Changes and contact</a></li>
+      </ol>
+    </nav>
+    <article>
+
+    <p>Yalla is a student project (CSC 490) by Yamen Morcel and Hadi Khawand. This page explains, in plain words, what
+      the Yalla Android app stores about you, who else receives it, and how to have it deleted. "We" means the two of us.</p>
+
+    <div class="note">
+      <svg class="i" width="22" height="22"><use href="#i-info"/></svg>
+      <div><p><strong>The short version:</strong> we store what the app needs to work (your account, your free time, your
+        friends and plans, your searches). We don't show ads, we don't sell data, and we don't track your location in the
+        background. Email us and we delete your account.</p></div>
+    </div>
+
+    <h2 id="what"><span class="n">1</span>What we store</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>What</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Your email address and password (stored scrambled, never readable), or your Google account link</td><td>To sign you in</td></tr>
+          <tr><td>Your name, username, region (a name like "Chouf", not a position), and an optional short bio and profile photo</td><td>So friends can find and recognise you</td></tr>
+          <tr><td>Your interests</td><td>To suggest places you'd like</td></tr>
+          <tr><td>Your weekly free time, its exceptions, and which friends may see it</td><td>To find a time that works for a group</td></tr>
+          <tr><td>Your friends, friend requests and groups</td><td>To invite people to plans</td></tr>
+          <tr><td>Plans you host or are invited to, your answers, seats, time votes, and whether you came</td><td>To run plans, and to learn who really shows up (this trains the attendance model)</td></tr>
+          <tr><td>Your notifications, and your phone's push address</td><td>To tell you about invites and changes</td></tr>
+          <tr><td>Your searches: the filters you chose, the spot you searched from (see <a href="#location">section 2</a>), the places shown and the one you picked</td><td>To train the place ranker</td></tr>
+          <tr><td>Places you add, and places you report as wrong</td><td>To keep the map accurate (an admin reviews them)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Everything is stored with Supabase, in its Frankfurt (EU) data centre.</p>
+
+    <h2 id="location"><span class="n">2</span>Your location</h2>
+    <ul>
+      <li>The app asks for your location only while you use it, to show what's near you. It has no permission to read
+        your location in the background.</li>
+      <li><strong>When you search places while signed in,</strong> we save the spot you searched from (your phone's
+        position, or the centre of the map) <strong>rounded to about 100 metres</strong>, together with that search. We
+        keep it until you delete your account. We use it to train the ranker: it needs to know how far each place was.</li>
+      <li>Otherwise, your position is sent with a request only to answer it (for example "places near me" or "plans near
+        me") and is not saved in our database. It does appear for a short time in our server's request logs.</li>
+      <li>The map images come from Stadia Maps, which sees which area of the map you're looking at.</li>
+    </ul>
+
+    <h2 id="who-sees"><span class="n">3</span>Who can see what</h2>
+    <ul>
+      <li>Other signed-in users can see your name, username, bio, photo and region.</li>
+      <li>Your free-time hours are never shown to anyone. The app only uses them to work out answers like "which
+        friends are free Saturday?" or "the best time for this plan", and you choose which friends are included.</li>
+      <li>Plans are seen by their host and guests; friends-only plans by the host's friends; public plans by everyone.</li>
+      <li>Your searches, notifications and push address are visible to you only.</li>
+      <li>These rules are enforced by the database itself (row-level security), not just by the app.</li>
+      <li>Your profile photo can be opened by anyone who has its link.</li>
+      <li>The two of us, as the app's admins, can see the data when we need to fix a problem, review a report, or delete an account.</li>
+    </ul>
+
+    <h2 id="google"><span class="n">4</span>Signing in with Google</h2>
+    <p>Signing in with Google is optional. If you choose it, Google gives us your <strong>name and email
+      address</strong> (the <code>email</code> and <code>profile</code> permissions). We use them only to create and
+      sign in to your Yalla account. We don't read your Gmail, contacts, calendar or anything else in your Google account.</p>
+    <p>Yalla's use and transfer to any other app of information received from Google APIs will adhere to the
+      <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google API Services
+      User Data Policy</a>, including the Limited Use requirements.</p>
+
+    <h2 id="others"><span class="n">5</span>Other services that receive data</h2>
+    <p>We don't sell or share your data with anyone for advertising. These services receive some of it because the app
+      can't work without them:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Service</th><th>What it receives</th></tr></thead>
+        <tbody>
+          <tr><td>Supabase (database, sign-in, photo storage)</td><td>Everything listed in section 1</td></tr>
+          <tr><td>Render (hosts our server, Frankfurt)</td><td>The requests the app sends to our server; its logs keep them for a short time, including a position when the request had one</td></tr>
+          <tr><td>Google sign-in</td><td>Only if you use it: see section 4</td></tr>
+          <tr><td>Gmail (sends our emails)</td><td>Your email address and the sign-up or password code we send you</td></tr>
+          <tr><td>Firebase Cloud Messaging (Google)</td><td>Your phone's push address. The notification itself carries no name, plan or other detail</td></tr>
+          <tr><td>Google Fonts</td><td>Your phone's internet address, when the app downloads its font</td></tr>
+          <tr><td>Google Maps</td><td>A Google Maps link, if someone adds one to a place. If you tap "Directions", your phone opens Google Maps</td></tr>
+          <tr><td>Stadia Maps (map images)</td><td>Your phone's internet address and the map area you view</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>A place's website or phone number opens only when you tap it.</p>
+
+    <h2 id="ai"><span class="n">6</span>The AI features</h2>
+    <p>The AI features (understanding a typed request, ranking places, predicting attendance) are not live in the app
+      yet. The models are trained on simulated data and on searches stored as described above. If running them means
+      sending your data to another service, we will update this page before that happens.</p>
+
+    <h2 id="keep"><span class="n">7</span>How long we keep it, and deleting your account</h2>
+    <p>We keep your data until you delete your account. An account that was never confirmed by email is removed
+      automatically.</p>
+    <p>There's no delete button in the app yet. To delete your account, <strong>email us from the address you signed up
+      with</strong> at <a href="mailto:yalla.app.lb@gmail.com">yalla.app.lb@gmail.com</a>. Within 30 days we will:</p>
+    <ol>
+      <li>Delete your account. This removes your profile, interests, free time, friendships, groups, plans you host,
+        your invites, seats and votes, your notifications, your phone's push address, your searches, and your place
+        submissions and reports.</li>
+      <li>Delete your profile photo.</li>
+      <li>Remove notifications in other people's accounts that refer to you.</li>
+      <li>Reject any place you added that was still waiting for review.</li>
+      <li>Email you to confirm it's done.</li>
+    </ol>
+    <p>Please know: <strong>plans you hosted are cancelled for everyone</strong>. Places you added that were already
+      approved stay on the map, no longer linked to you. Short-term logs kept by the services above expire on their own
+      schedule, and Firebase keeps your phone's push address until you uninstall the app.</p>
+
+    <h2 id="children"><span class="n">8</span>Children</h2>
+    <p>Yalla is not meant for children under 13, and we don't knowingly collect data from them. If you believe a child
+      under 13 has an account, email us and we'll delete it.</p>
+
+    <h2 id="site"><span class="n">9</span>This website</h2>
+    <p>This website sets no cookies, has no analytics and loads nothing from other sites. It is hosted by GitHub Pages,
+      which may log visitors' internet addresses for security.</p>
+
+    <h2 id="changes"><span class="n">10</span>Changes and contact</h2>
+    <p>If we change this policy, we update this page and the date at the top. Questions: <a
+      href="mailto:yalla.app.lb@gmail.com">yalla.app.lb@gmail.com</a>.</p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-brand">
+        <img src="img/icon-192.png" alt="" width="40" height="40">
+        <img class="wordmark" src="img/wordmark.png" alt="" width="72" height="24">
+      </div>
+      <nav aria-label="Footer">
+        <a href="./">About</a>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="terms.html">Terms of use</a>
+        <a href="mailto:yalla.app.lb@gmail.com">Contact</a>
+      </nav>
+      <small>Yalla · a CSC 490 senior project by Yamen Morcel and Hadi Khawand · 2026</small>
+    </div>
+  </footer>
+</body>
+</html>
