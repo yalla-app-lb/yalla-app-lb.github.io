@@ -63,7 +63,7 @@
       <svg class="i" width="22" height="22"><use href="#i-info"/></svg>
       <div><p><strong>The short version:</strong> we store what the app needs to work (your account, your free time, your
         friends and plans, your searches). We don't show ads, we don't sell data, and we don't track your location in the
-        background. Email us and we delete your account.</p></div>
+        background. You can delete your account in the app at any time.</p></div>
     </div>
 
     <h2 id="what"><span class="n">1</span>What we store</h2>
@@ -79,7 +79,8 @@
           <tr><td>Plans you host or are invited to, your answers, seats, time votes, and whether you came</td><td>To run plans, and to learn who really shows up (this trains the attendance model)</td></tr>
           <tr><td>Your notifications, and your phone's push address</td><td>To tell you about invites and changes</td></tr>
           <tr><td>Your searches: the filters you chose, the spot you searched from (see <a href="#location">section 2</a>), the places shown and the one you picked</td><td>To train the place ranker</td></tr>
-          <tr><td>Places you add, and places you report as wrong</td><td>To keep the map accurate (an admin reviews them)</td></tr>
+          <tr><td>Places you add, and places or people you report</td><td>To keep the map accurate and the app safe (an admin reviews them)</td></tr>
+          <tr><td>Plans you hide from your list</td><td>So they stay hidden for you</td></tr>
         </tbody>
       </table>
     </div>
@@ -93,7 +94,8 @@
         position, or the centre of the map) <strong>rounded to about 100 metres</strong>, together with that search. We
         keep it until you delete your account. We use it to train the ranker: it needs to know how far each place was.</li>
       <li>Otherwise, your position is sent with a request only to answer it (for example "places near me" or "plans near
-        me") and is not saved in our database. It does appear for a short time in our server's request logs.</li>
+        me") and is not saved in our database. Our main server keeps no request logs; if the backup server is used, its
+        logs may keep a request for a short time.</li>
       <li>The map images come from Stadia Maps, which sees which area of the map you're looking at.</li>
     </ul>
 
@@ -106,6 +108,9 @@
       <li>Your searches, notifications and push address are visible to you only.</li>
       <li>These rules are enforced by the database itself (row-level security), not just by the app.</li>
       <li>Your profile photo can be opened by anyone who has its link.</li>
+      <li>You can report a person (for example an offensive name or harassment). Only the admins see reports; an admin
+        can reset a name, remove a photo or block an account.</li>
+      <li>Some people in the app are made-up demo accounts, added to show how plans work. They are not real users.</li>
       <li>The two of us, as the app's admins, can see the data when we need to fix a problem, review a report, or delete an account.</li>
     </ul>
 
@@ -125,7 +130,8 @@
         <thead><tr><th>Service</th><th>What it receives</th></tr></thead>
         <tbody>
           <tr><td>Supabase (database, sign-in, photo storage)</td><td>Everything listed in section 1</td></tr>
-          <tr><td>Render (hosts our server, Frankfurt)</td><td>The requests the app sends to our server; its logs keep them for a short time, including a position when the request had one</td></tr>
+          <tr><td>Microsoft Azure (hosts our server and its AI, Switzerland)</td><td>The requests the app sends to our server, to answer them. It keeps no request logs</td></tr>
+          <tr><td>Render (a backup copy of our server, Frankfurt)</td><td>Only if the backup is used: the requests sent to it; its logs keep them for a short time, including a position when the request had one</td></tr>
           <tr><td>Google sign-in</td><td>Only if you use it: see section 4</td></tr>
           <tr><td>Gmail (sends our emails)</td><td>Your email address and the sign-up or password code we send you</td></tr>
           <tr><td>Firebase Cloud Messaging (Google)</td><td>Your phone's push address. The notification itself carries no name, plan or other detail</td></tr>
@@ -138,27 +144,26 @@
     <p>A place's website or phone number opens only when you tap it.</p>
 
     <h2 id="ai"><span class="n">6</span>The AI features</h2>
-    <p>The AI features (understanding a typed request, ranking places, predicting attendance) are not live in the app
-      yet. The models are trained on simulated data and on searches stored as described above. If running them means
-      sending your data to another service, we will update this page before that happens.</p>
+    <p>Yalla's AI (turning a typed request into a plan, ranking places, and estimating how many people are likely to
+      come at a time) runs inside our own server. <strong>What you type is not sent to any AI company.</strong> A sentence
+      you type in "Create with AI" is used to answer you and is not saved.</p>
+    <p>When a host asks Yalla to suggest times, the app shows totals only, like "about 3 likely to come", never a score
+      for one person. The models were trained on simulated data. If running them ever means sending your data to
+      another service, we will update this page before that happens.</p>
 
     <h2 id="keep"><span class="n">7</span>How long we keep it, and deleting your account</h2>
     <p>We keep your data until you delete your account. An account that was never confirmed by email is removed
       automatically.</p>
-    <p>There's no delete button in the app yet. To delete your account, <strong>email us from the address you signed up
-      with</strong> at <a href="mailto:yalla.app.lb@gmail.com">yalla.app.lb@gmail.com</a>. Within 30 days we will:</p>
-    <ol>
-      <li>Delete your account. This removes your profile, interests, free time, friendships, groups, plans you host,
-        your invites, seats and votes, your notifications, your phone's push address, your searches, and your place
-        submissions and reports.</li>
-      <li>Delete your profile photo.</li>
-      <li>Remove notifications in other people's accounts that refer to you.</li>
-      <li>Reject any place you added that was still waiting for review.</li>
-      <li>Email you to confirm it's done.</li>
-    </ol>
-    <p>Please know: <strong>plans you hosted are cancelled for everyone</strong>. Places you added that were already
-      approved stay on the map, no longer linked to you. Short-term logs kept by the services above expire on their own
+    <p><strong>You can delete your account in the app:</strong> Settings → Delete my account, then type DELETE to
+      confirm. This removes your profile photo, then your account and everything about you: profile, interests, free time
+      and who may see it, friendships, groups, plans you host, your invites, seats and votes, notifications, your phone's
+      push address, searches, and the places and people you reported. Reports other people made about you go too.</p>
+    <p>Please know: <strong>plans you host are removed for everyone</strong>. Guests of your upcoming plans are told the
+      plan was cancelled. Places you added stay on the map, no longer linked to you. Notices in other people's accounts
+      may still hold your account's id (never your name). Short-term logs kept by the services above expire on their own
       schedule, and Firebase keeps your phone's push address until you uninstall the app.</p>
+    <p>Can't open the app? Email us from the address you signed up with at
+      <a href="mailto:yalla.app.lb@gmail.com">yalla.app.lb@gmail.com</a> and we will delete the account within 30 days.</p>
 
     <h2 id="children"><span class="n">8</span>Children</h2>
     <p>Yalla is not meant for children under 13, and we don't knowingly collect data from them. If you believe a child

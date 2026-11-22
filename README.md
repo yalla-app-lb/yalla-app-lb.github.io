@@ -17,15 +17,14 @@ Never add a custom domain here: Google needs these exact addresses, with no redi
 
 ## When someone emails to delete their account
 
+Members can delete their own account in the app (Settings → Delete my account, ADR-070), which also removes their photo.
+If someone can't and emails us instead:
+
 1. Check the email came from the account's own address; reply to confirm.
-2. Supabase → Authentication → Users → find the email → Delete user. The database removes their rows with it
-   (profile, interests, free time, friends, groups, hosted plans, invites, seats, votes, notifications, push
-   addresses, searches, place submissions and reports), and their Google link.
-3. Supabase → Storage → `avatars` → delete the folder named with their user id (photos aren't removed by step 2).
-4. Supabase → SQL editor:
-   `delete from notification where data->>'from_user_id' = '<their user id>';`
-5. Admin panel → reject any place they added that is still waiting for approval.
-6. Reply that it's done, within 30 days of the request.
+2. Supabase → Storage → `avatars` → delete the folder named with their user id (the database can't delete Storage files).
+3. Supabase → Authentication → Users → find the email → Delete user (every table about them goes with it).
+   Note: this skips the in-app flow's "your plan was cancelled" notices to guests of their upcoming plans.
+4. Reply that it's done, within 30 days of the request.
 
 If the privacy policy changes (for example the AI starts using an outside service), update `privacy.html` and its date
 before that change goes live.

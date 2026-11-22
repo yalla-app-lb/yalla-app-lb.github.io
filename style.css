@@ -273,6 +273,8 @@ svg { flex-shrink: 0; }
 .band .eyebrow { color: var(--mint); }
 .wip { display: inline-flex; align-items: center; gap: 7px; min-height: 28px; padding: 0 12px; border-radius: 999px; font-size: 12.5px; font-weight: 800; background: #FFE6A8; color: #5A3A00; align-self: flex-start; }
 .wip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #B26B00; }
+.live { display: inline-flex; align-items: center; gap: 7px; min-height: 28px; padding: 0 12px; border-radius: 999px; font-size: 12.5px; font-weight: 800; background: #CFF7E2; color: #0B3B27; align-self: flex-start; }
+.live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #1DAA6E; }
 .ai-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
 .ai { background: var(--band-card); border: 1px solid var(--band-line); border-radius: 26px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 .ai h3 { font-size: 20px; font-weight: 800; letter-spacing: -.015em; }
